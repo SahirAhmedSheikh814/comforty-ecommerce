@@ -5,6 +5,7 @@ import { BiCart } from 'react-icons/bi';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Link from 'next/link';
 
 // Slider settings
 const sliderSettings = {
@@ -49,12 +50,14 @@ const sliderSettings = {
 const Products = () => {
   const products = [
     {
+      id: 1,
       image: '/product-1.svg',
       title: 'Library Stool Chair',
       price: '$20',
       isNew: true,
     },
     {
+      id: 2,
       image: '/product-2.svg',
       title: 'Pink Armchair',
       price: '$30',
@@ -62,11 +65,13 @@ const Products = () => {
       salePrice: '$20',
     },
     {
+      id: 3,
       image: '/product-3.svg',
       title: 'Orange Modern Chair',
       price: '$20',
     },
     {
+      id: 4,
       image: '/product-4.svg',
       title: 'Luxury White Chair',
       price: '$20',
@@ -74,6 +79,7 @@ const Products = () => {
   ];
 
   const ProductCard = ({
+    id,
     image,
     title,
     price,
@@ -81,6 +87,7 @@ const Products = () => {
     isOnSale,
     salePrice,
   }: {
+    id: number;
     image: string;
     title: string;
     price: string;
@@ -89,6 +96,7 @@ const Products = () => {
     salePrice?: string;
   }) => {
     return (
+      <Link href={`/allproducts/${id}`}>
       <div className="relative group w-72 h-96 p-4 cursor-pointer bg-white shadow-md rounded-md hover:shadow-lg transition">
         {/* Tags */}
         {isNew && (
@@ -139,8 +147,10 @@ const Products = () => {
           </div>
         </div>
       </div>
+      </Link>
     );
   };
+  
 
   return (
     <div className="p-8 gap-4 bg-white min-h-full">

@@ -5,6 +5,7 @@ import { BiCart } from 'react-icons/bi'; // Import the cart icon from react-icon
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Link from 'next/link';
 
 // Slider settings
 const sliderSettings = {
@@ -49,12 +50,14 @@ const sliderSettings = {
 const OurProducts = () => {
   const products = [
     {
+      id: 1,
       image: '/product-1.svg',
       title: 'Library Stool Chair',
       price: '$20',
       isNew: true,
     },
     {
+      id: 2,
       image: '/product-2.svg',
       title: 'Pink Armchair',
       price: '$30',
@@ -62,11 +65,13 @@ const OurProducts = () => {
       salePrice: '$20',
     },
     {
+      id: 3,
       image: '/product-3.svg',
       title: 'Orange Modern Chair',
       price: '$20',
     },
     {
+      id: 4,
       image: '/product-4.svg',
       title: 'Luxury White Chair',
       price: '$20',
@@ -76,12 +81,14 @@ const OurProducts = () => {
   // Second array for the second slider
   const moreProducts = [
     {
+      id: 5,
       image: '/product-5.svg',
       title: 'Modern Wooden Chair',
       price: '$25',
       isNew: true,
     },
     {
+      id: 6,
       image: '/product-6.svg',
       title: 'Classic Leather Chair',
       price: '$50',
@@ -89,11 +96,13 @@ const OurProducts = () => {
       salePrice: '$40',
     },
     {
+      id: 7,
       image: '/product-7.svg',
       title: 'Adjustable Desk Chair',
       price: '$45',
     },
     {
+      id: 8,
       image: '/product-8.svg',
       title: 'Comfy Lounge Chair',
       price: '$30',
@@ -101,6 +110,7 @@ const OurProducts = () => {
   ];
 
   const ProductCard = ({
+    id,
     image,
     title,
     price,
@@ -108,6 +118,7 @@ const OurProducts = () => {
     isOnSale,
     salePrice,
   }: {
+    id: number;
     image: string;
     title: string;
     price: string;
@@ -116,6 +127,7 @@ const OurProducts = () => {
     salePrice?: string;
   }) => {
     return (
+      <Link href={`/allproducts/${id}`}>
       <div className="relative group w-72 h-96 p-4 cursor-pointer bg-white shadow-md rounded-md hover:shadow-lg transition">
         {/* Tags */}
         {isNew && (
@@ -166,6 +178,7 @@ const OurProducts = () => {
           </div>
         </div>
       </div>
+      </Link>
     );
   };
 

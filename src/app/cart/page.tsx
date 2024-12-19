@@ -72,14 +72,14 @@ export default function CartPage() {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-4 p-4 bg-white rounded-lg shadow-sm"
+                className="flex gap-4 p-4 bg-white rounded-lg shadow-sm flex-wrap"
               >
                 <div className="w-24 h-24 relative">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover rounded-md"
+                    className="object-contain rounded-md"
                     priority={true}
                   />
                 </div>
